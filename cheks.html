@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- link rel="stylesheet" href="styles.css"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto+Mono:wght@400&display=swap" rel="styleshe<et">
+
     <title>thoughtbot - Product Design & Development</title>
     <style>
         * {
@@ -390,6 +395,1218 @@
                 padding-bottom: 20px;
             }
         }
+         /* Global Reset and Variables */
+:root {
+    --bg-color: #1a1515; /* Deep warm brownish-black */
+    --text-white: #ffffff;
+    --text-gray: #e0e0e0;
+    --accent-cyan: #5eead4; /* Teal/Cyan for tags */
+    --accent-yellow: #fde047; /* Yellow for link underline */
+    --circle-bg: #261f1f; /* Slightly lighter background for the circle */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-white);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Layout Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 50/50 split */
+    gap: 60px;
+    align-items: center;
+}
+
+/* --- Top Section Typography --- */
+.main-title {
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    letter-spacing: -1px;
+}
+
+/* Tags Styling */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.tag {
+    color: var(--accent-cyan);
+    border: 1px solid var(--accent-cyan);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: 'Roboto Mono', monospace; /* Monospaced look for technical tags */
+}
+
+.description {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 40px;
+    max-width: 90%;
+    line-height: 1.4;
+}
+
+/* Custom Link Styling */
+.cta-link {
+    color: var(--text-white);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    font-family: 'Roboto Mono', monospace;
+    border-bottom: 2px dotted var(--accent-yellow); /* The dotted yellow line */
+    padding-bottom: 4px;
+    transition: opacity 0.2s ease;
+}
+
+.cta-link:hover {
+    opacity: 0.8;
+}
+
+.arrow {
+    margin-left: 5px;
+}
+
+/* --- Testimonial Circle Section --- */
+.testimonial-area {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.testimonial-circle {
+    background-color: var(--circle-bg);
+    border-radius: 50%; /* Makes it a circle */
+    width: 500px;
+    height: 500px;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    /* Soft shadow to separate from background */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
+}
+
+.quote {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+.author-block {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.author-img img {
+    width: 60px;
+    height: 60px;
+    border-radius: 20px; /* Squircle shape */
+    object-fit: cover;
+    filter: grayscale(100%); /* Matches the B&W photo style */
+}
+
+.author-info {
+    font-size: 0.9rem;
+    font-weight: 400;
+    max-width: 250px;
+    line-height: 1.3;
+}
+
+.author-info strong {
+    font-weight: 700;
+    display: block; /* Force name to own line if needed */
+}
+
+/* --- Bottom Section (Services) --- */
+.spacer {
+    height: 100px; /* Space between sections */
+}
+
+.bottom-section {
+    align-items: flex-start; /* Align text to top */
+}
+
+.eyebrow {
+    display: block;
+    font-family: 'Roboto Mono', monospace;
+    color: #ccc;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+
+.sub-description {
+    font-size: 1.1rem;
+    color: var(--text-gray);
+    max-width: 90%;
+    line-height: 1.6;
+}
+
+.side-heading {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 55px; /* Visual alignment with left title */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 900px) {
+    .grid-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .testimonial-circle {
+        width: 100%;
+        height: auto;
+        border-radius: 20px; /* rounded rect on mobile */
+        aspect-ratio: auto;
+    }
+}
+/* --- Clients Section Specifics --- */
+
+/* Adjusting alignment for the clients section */
+.clients-section {
+    align-items: flex-start; /* Aligns text to top, grid flows down */
+}
+
+/* Monospace "Eyebrow" text style */
+.mono-text {
+    font-family: 'Roboto Mono', monospace;
+    color: #e6bfb8; /* A warm, light pinkish-beige to match screenshot */
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    display: block;
+    letter-spacing: -0.5px;
+}
+
+.description-text {
+    font-size: 1.4rem; /* Slightly larger than standard body text */
+    line-height: 1.5;
+    margin-bottom: 40px;
+    max-width: 90%;
+    color: var(--text-white);
+}
+
+/* --- Logo Grid Styling --- */
+.logo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 Columns */
+    gap: 40px 20px; /* 40px vertical gap, 20px horizontal gap */
+    width: 100%;
+}
+
+.logo-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.7; /* Make logos slightly muted */
+    transition: opacity 0.3s ease;
+}
+
+.logo-item:hover {
+    opacity: 1; /* Brighten on hover */
+}
+
+.logo-item img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    /* This filter ensures any image used turns white/grayscale 
+       if you replace placeholders with real colored logos later */
+    filter: grayscale(100%) brightness(200%); 
+}
+
+/* Specific adjustment for sticky scrolling feel if desired */
+.sticky-content {
+    position: sticky;
+    top: 40px;
+}
+
+/* Mobile Responsiveness for Grid */
+@media (max-width: 900px) {
+    .logo-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+    }
+}
+
+@media (max-width: 600px) {
+    .logo-grid {
+        grid-template-columns: repeat(2, 1fr); /* Keep 2 cols on mobile for density */
+        gap: 20px;
+    }
+    
+    .description-text {
+        font-size: 1.1rem;
+    }
+}
+/* --- Service Highlight Section --- */
+
+.highlight-section {
+    align-items: center; /* Vertically center the text with the image */
+}
+
+/* Specific styling for the monospaced label in this section */
+.text-gray {
+    color: #b0b0b0; /* Light gray instead of the pinkish-beige used above */
+}
+
+/* Image container styling */
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.feature-image {
+    max-width: 100%;
+    height: auto;
+    /* If you use the placeholder, this adds a subtle glow to mimic 
+       the neon vibe of the original graphic. 
+    */
+    filter: drop-shadow(0 0 20px rgba(94, 234, 212, 0.1)); 
+    transition: transform 0.3s ease;
+}
+
+.feature-image:hover {
+    transform: translateY(-5px); /* Gentle float effect on hover */
+}
+
+/* Adjustments for the text content in this specific section */
+.highlight-section .section-title {
+    margin-top: 10px; /* Slight space between eyebrow and title */
+    font-size: 2.5rem;
+    max-width: 100%;
+}
+
+.highlight-section .description-text {
+    font-size: 1.125rem; /* Standard readable size */
+    color: #cccccc; /* Softer gray for this paragraph */
+    max-width: 600px;
+}
+
+/* Responsive fix for the highlight section */
+@media (max-width: 900px) {
+    .highlight-section {
+        /* On mobile, we usually want the image on top or bottom. 
+           Here we reverse column order so text might appear first, 
+           or keep normal flow. Let's keep normal flow (Image top). */
+        display: flex;
+        flex-direction: column; 
+    }
+    
+    .image-container {
+        margin-bottom: 40px;
+    }
+}
+/* AI Service Section */
+.ai-service-section {
+    padding: 120px 60px;
+    background-color: #1a1a1a;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.ai-content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 120px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.ai-illustration {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.isometric-container {
+    position: relative;
+    width: 500px;
+    height: 400px;
+}
+
+.path-segment {
+    position: absolute;
+    width: 80px;
+    height: 40px;
+    background: linear-gradient(135deg, #0ea5e9 0%, #1e88a8 100%);
+    border: 2px solid #0ea5e9;
+    transform-style: preserve-3d;
+}
+
+.segment-1 {
+    top: 120px;
+    left: 50px;
+    transform: rotateX(60deg) rotateZ(-45deg);
+}
+
+.segment-2 {
+    top: 100px;
+    left: 150px;
+    transform: rotateX(60deg) rotateZ(-45deg);
+}
+
+.segment-3 {
+    top: 120px;
+    left: 250px;
+    transform: rotateX(60deg) rotateZ(-45deg);
+}
+
+.segment-4 {
+    top: 200px;
+    left: 100px;
+    transform: rotateX(60deg) rotateZ(-45deg);
+}
+
+.connecting-path {
+    position: absolute;
+    top: 160px;
+    left: 130px;
+    width: 60px;
+    height: 80px;
+    background: linear-gradient(to bottom, #0ea5e9, #1e88a8);
+    border: 2px solid #0ea5e9;
+    transform: rotateX(60deg) rotateZ(-45deg);
+}
+
+.arrow-path {
+    position: absolute;
+    top: 80px;
+    right: 80px;
+    width: 120px;
+    height: 3px;
+    background-color: #0ea5e9;
+    transform: rotate(-30deg);
+}
+
+.arrow-head {
+    position: absolute;
+    right: -15px;
+    top: -8px;
+    width: 0;
+    height: 0;
+    border-left: 20px solid #0ea5e9;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+
+.wireframe-box {
+    position: absolute;
+    border: 1.5px solid #444;
+    border-radius: 8px;
+    background: transparent;
+}
+
+.box-1 {
+    width: 140px;
+    height: 140px;
+    top: 80px;
+    left: 30px;
+    transform: rotateX(15deg) rotateY(-20deg);
+}
+
+.box-2 {
+    width: 120px;
+    height: 120px;
+    top: 140px;
+    left: 220px;
+    transform: rotateX(15deg) rotateY(-20deg);
+}
+
+.box-3 {
+    width: 100px;
+    height: 100px;
+    top: 190px;
+    left: 140px;
+    transform: rotateX(15deg) rotateY(-20deg);
+}
+
+.ai-text-content {
+    flex: 1;
+    max-width: 650px;
+}
+
+.service-label {
+    font-size: 13px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+.ai-heading {
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1.15;
+    margin-bottom: 35px;
+    color: white;
+}
+
+.ai-description {
+    font-size: 19px;
+    line-height: 1.65;
+    color: #b3b3b3;
+    margin-bottom: 45px;
+}
+
+.ai-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px dotted white;
+    padding-bottom: 5px;
+    transition: all 0.3s;
+}
+
+.ai-link:hover {
+    opacity: 0.7;
+    gap: 18px;
+}
+
+.arrow {
+    font-size: 22px;
+    transition: transform 0.3s;
+}
+
+.ai-link:hover .arrow {
+    transform: translateX(5px);
+}
+
+@media (max-width: 1024px) {
+    .ai-content-wrapper {
+        flex-direction: column;
+        gap: 80px;
+    }
+    
+    .ai-heading {
+        font-size: 40px;
+    }
+}
+/* Client Success Section */
+.client-success-section {
+    padding: 100px 60px;
+    background-color: #1a1a1a;
+}
+
+.section-label {
+    font-size: 13px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.success-heading {
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 60px;
+    max-width: 1100px;
+}
+
+.case-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.case-card {
+    background-color: #2a2a2a;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.case-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-image {
+    position: relative;
+    height: 320px;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 40px;
+}
+
+.card-title {
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.1;
+    text-align: left;
+    color: white;
+}
+
+.purple-bg {
+    background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+}
+
+.closeknit-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo-icon {
+    font-size: 28px;
+    color: #f97316;
+}
+
+.logo-text {
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+}
+
+.closeknit-illustration {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 60%;
+    height: 60%;
+}
+
+.closeknit-illustration img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.card-content {
+    padding: 30px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.card-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ccc;
+    flex: 1;
+}
+
+.card-text strong {
+    color: white;
+    font-weight: 600;
+}
+
+.card-arrow {
+    font-size: 24px;
+    color: white;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+}
+
+.case-card:hover .card-arrow {
+    transform: translateX(5px);
+}
+
+@media (max-width: 1200px) {
+    .case-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .success-heading {
+        font-size: 36px;
+    }
+    
+    .case-cards {
+        grid-template-columns: 1fr;
+    }
+}
+/* Testimonial Section */
+.testimonial-section {
+    padding: 120px 60px;
+    background-color: #1a1a1a;
+}
+
+.testimonial-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimonial-quote {
+    margin: 0 0 50px 0;
+}
+
+.testimonial-quote p {
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: white;
+    margin: 0;
+}
+
+.testimonial-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.author-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.author-photo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.author-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    margin: 0;
+}
+
+.author-title {
+    font-size: 15px;
+    color: #999;
+    margin: 0;
+}
+
+.case-study-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px dotted white;
+    padding-bottom: 5px;
+    white-space: nowrap;
+    transition: all 0.3s;
+}
+
+.case-study-link:hover {
+    opacity: 0.7;
+    gap: 15px;
+}
+
+.case-study-link .arrow {
+    font-size: 20px;
+    transition: transform 0.3s;
+}
+
+.case-study-link:hover .arrow {
+    transform: translateX(5px);
+}
+
+@media (max-width: 1024px) {
+    .testimonial-quote p {
+        font-size: 32px;
+    }
+    
+    .testimonial-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .case-study-link {
+        white-space: normal;
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonial-quote p {
+        font-size: 24px;
+    }
+    
+    .author-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+/* Purpose-driven teams Section */
+.purpose-section {
+    padding: 120px 60px;
+    background-color: #1a1a1a;
+}
+
+.purpose-content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.purpose-illustration {
+    flex: 1;
+    max-width: 500px;
+}
+
+.purpose-illustration svg {
+    width: 100%;
+    height: auto;
+}
+
+.compass-needle {
+    animation: rotate 8s ease-in-out infinite;
+    transform-origin: 200px 250px;
+}
+
+@keyframes rotate {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(45deg);
+    }
+    50% {
+        transform: rotate(-30deg);
+    }
+    75% {
+        transform: rotate(20deg);
+    }
+}
+
+.person {
+    animation: float 3s ease-in-out infinite;
+}
+
+.person-1 {
+    animation-delay: 0s;
+}
+
+.person-2 {
+    animation-delay: 0.5s;
+}
+
+.person-3 {
+    animation-delay: 1s;
+}
+
+.person-4 {
+    animation-delay: 1.5s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.purpose-text-content {
+    flex: 1;
+    max-width: 650px;
+}
+
+.purpose-heading {
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1.15;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.purpose-description {
+    font-size: 19px;
+    line-height: 1.65;
+    color: #b3b3b3;
+    margin-bottom: 40px;
+}
+
+.purpose-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px dotted white;
+    padding-bottom: 5px;
+    transition: all 0.3s;
+}
+
+.purpose-link:hover {
+    opacity: 0.7;
+    gap: 18px;
+}
+
+.purpose-link .arrow {
+    font-size: 22px;
+    transition: transform 0.3s;
+}
+
+.purpose-link:hover .arrow {
+    transform: translateX(5px);
+}
+
+@media (max-width: 1024px) {
+    .purpose-content-wrapper {
+        flex-direction: column;
+        gap: 80px;
+    }
+    
+    .purpose-heading {
+        font-size: 40px;
+    }
+}
+
+/* Resources Section */
+.resources-section {
+    padding: 100px 60px;
+    background-color: #1a1a1a;
+}
+
+.resources-heading {
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 80px;
+    max-width: 900px;
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px 40px;
+    max-width: 1400px;
+}
+
+.resource-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.resource-title {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: white;
+    margin: 0;
+}
+
+.resource-description {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #b3b3b3;
+    margin: 0;
+    flex: 1;
+}
+
+.resource-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px dotted white;
+    padding-bottom: 4px;
+    transition: all 0.3s;
+    width: fit-content;
+}
+
+.resource-link:hover {
+    opacity: 0.7;
+    gap: 15px;
+}
+
+.resource-link .arrow {
+    font-size: 20px;
+    transition: transform 0.3s;
+}
+
+.resource-link:hover .arrow {
+    transform: translateX(5px);
+}
+
+@media (max-width: 1200px) {
+    .resources-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .resources-heading {
+        font-size: 36px;
+    }
+    
+    .resources-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+}
+/* CTA Banner */
+.cta-banner {
+    padding: 60px 60px;
+    background: linear-gradient(135deg, #4a2860 0%, #5d3470 100%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+.cta-heading {
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1.15;
+    color: white;
+    max-width: 900px;
+    flex: 1;
+}
+
+.cta-banner-button {
+    background-color: white;
+    color: #1a1a1a;
+    padding: 16px 45px;
+    border-radius: 50px;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s;
+}
+
+.cta-banner-button:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+.footer {
+    padding: 60px 60px 40px;
+    background-color: #0d0d0d;
+    color: white;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 120px;
+    margin-bottom: 80px;
+    max-width: 1400px;
+}
+
+.footer-brand {
+    max-width: 350px;
+}
+
+.footer-brand .logo {
+    margin-bottom: 60px;
+}
+
+.footer-legal {
+    color: #666;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.copyright {
+    margin: 0 0 8px 0;
+}
+
+.trademark {
+    margin: 0;
+}
+
+.footer-links {
+    display: flex;
+    gap: 100px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-link {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+    border-bottom: 1px dotted #ccc;
+    width: fit-content;
+    padding-bottom: 2px;
+}
+
+.footer-link:hover {
+    color: white;
+    border-bottom-color: white;
+}
+
+.footer-link:first-child {
+    font-weight: 500;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.footer-link.highlighted {
+    color: #fbbf24;
+    border-bottom: 1px dotted #fbbf24;
+}
+
+.footer-link.highlighted:hover {
+    color: #fcd34d;
+    border-bottom-color: #fcd34d;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    border-top: 1px solid #2a2a2a;
+    gap: 40px;
+}
+
+.footer-contact {
+    display: flex;
+    gap: 40px;
+}
+
+.contact-link {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    border-bottom: 1px dotted white;
+    padding-bottom: 2px;
+    transition: opacity 0.3s;
+}
+
+.contact-link:hover {
+    opacity: 0.7;
+}
+
+.footer-policies {
+    display: flex;
+    gap: 30px;
+}
+
+.policy-link {
+    color: #999;
+    text-decoration: none;
+    font-size: 14px;
+    border-bottom: 1px dotted #999;
+    padding-bottom: 2px;
+    transition: all 0.3s;
+}
+
+.policy-link:hover {
+    color: white;
+    border-bottom-color: white;
+}
+
+@media (max-width: 1024px) {
+    .cta-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .cta-heading {
+        font-size: 36px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 50px;
+    }
+    
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 50px;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .footer-contact,
+    .footer-policies {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
     </style>
 </head>
 <body>
@@ -474,5 +1691,397 @@
             </div>
         </div>
     </section>
+    <main class="container">
+        
+        <section class="grid-layout top-section">
+            
+            <div class="content-left">
+                <h1 class="main-title">Harvard Business Review</h1>
+                
+                <div class="tags">
+                    <span class="tag">Product Management</span>
+                    <span class="tag">UX, UI, & Product Design</span>
+                    <span class="tag">React Native</span>
+                </div>
+
+                <p class="description">
+                    How thoughtbot designed and built a user-validated mobile app for the Harvard Business Review
+                </p>
+
+                <a href="#" class="cta-link">Read about how we helped HBR <span class="arrow">&rarr;</span></a>
+            </div>
+
+            <div class="content-right testimonial-area">
+                <div class="testimonial-circle">
+                    <p class="quote">
+                        &ldquo; The thoughtbot team felt like our partners, not just people who deliver work and go. A lot of companies promise to work very closely with the client, but thoughtbot really delivered on that.
+                    </p>
+                    <div class="author-block">
+                        <div class="author-img">
+                            <img src="https://ui-avatars.com/api/?name=Marta+Kusztra&background=fff&color=000&size=128" alt="Marta Kusztra">
+                        </div>
+                        <div class="author-info">
+                            <strong>Marta Kusztra</strong>, Director of UX & Product Design, HBR
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="spacer"></div>
+
+        <section class="grid-layout bottom-section">
+            <div class="content-left">
+                <span class="eyebrow">Our services</span>
+                <h2 class="section-title">Your expert partners for building mission-driven products</h2>
+                <p class="sub-description">
+                    Benefit from over 20 years of experience designing and building successful products. Whether you're a founder with a...
+                </p>
+            </div>
+            
+            <div class="content-right services-right-col">
+                <h3 class="side-heading">For every stage of your business</h3>
+            </div>
+        </section>
+
+    </main>
+    <div class="spacer"></div>
+
+        <section class="grid-layout clients-section">
+            
+            <div class="content-left sticky-content">
+                <span class="eyebrow mono-text">Over 1,000+ positive outcomes</span>
+                <h2 class="section-title">Our Clients</h2>
+                <p class="description-text">
+                    We are proud to partner with clients of all stages, sizes and industries on meaningful work.
+                </p>
+                
+                <a href="#" class="cta-link">Here are their stories <span class="arrow">&rarr;</span></a>
+            </div>
+
+            <div class="content-right logo-grid-container">
+                <div class="logo-grid">
+                    <div class="logo-item"><img src="https://placehold.co/120x50/1a1515/FFFFFF?text=REAL+CHEMISTRY&font=montserrat" alt="Real Chemistry"></div>
+                    <div class="logo-item"><img src="https://placehold.co/120x50/1a1515/FFFFFF?text=Postmates&font=roboto" alt="Postmates"></div>
+                    <div class="logo-item"><img src="https://placehold.co/120x50/1a1515/FFFFFF?text=MoMA&font=playfair-display" alt="MoMA"></div>
+                    <div class="logo-item"><img src="https://placehold.co/120x50/1a1515/FFFFFF?text=groups&font=lato" alt="groups"></div>
+
+                    <div class="logo-item"><img src="https://placehold.co/120x50/1a1515/FFFFFF?text=HBR&font=merriweather" alt="Harvard Business Review"></div>
+                    <div class="logo-item"><img src="https://placehold.co/120x50/1a1515/FFFFFF?text=LevelUp&font=oswald" alt="LevelUp"></div>
+                    <div class="logo-item"><img src="https://placehold.co/120x50/1a1515/FFFFFF?text=LOLA&font=raleway" alt="LOLA"></div>
+                    <div class="logo-item"><img src="https://placehold.co/120x50/1a1515/FFFFFF?text=vimeo&font=inter" alt="Vimeo"></div>
+
+                    <div class="logo-item"><img src="https://placehold.co/120x50/1a1515/FFFFFF?text=AIRROSTI&font=montserrat" alt="Airrosti"></div>
+                    <div class="logo-item"><img src="https://placehold.co/120x50/1a1515/FFFFFF?text=DigitalOcean&font=roboto" alt="DigitalOcean"></div>
+                    <div class="logo-item"><img src="https://placehold.co/120x50/1a1515/FFFFFF?text=Planned+Parenthood&font=lato" alt="Planned Parenthood"></div>
+                    <div class="logo-item"><img src="https://placehold.co/120x50/1a1515/FFFFFF?text=EVERLANE&font=montserrat" alt="Everlane"></div>
+
+                    <div class="logo-item"><img src="https://placehold.co/120x50/1a1515/FFFFFF?text=Hilton&font=playfair-display" alt="Hilton"></div>
+                    <div class="logo-item"><img src="https://placehold.co/120x50/1a1515/FFFFFF?text=Blinkist&font=roboto" alt="Blinkist"></div>
+                    <div class="logo-item"><img src="https://placehold.co/120x50/1a1515/FFFFFF?text=GOV.UK&font=merriweather" alt="GOV.UK"></div>
+                    <div class="logo-item"><img src="https://placehold.co/120x50/1a1515/FFFFFF?text=MASSCHALLENGE&font=oswald" alt="MassChallenge"></div>
+
+                    <div class="logo-item"><img src="https://placehold.co/120x50/1a1515/FFFFFF?text=mailchimp&font=lato" alt="Mailchimp"></div>
+                    <div class="logo-item"><img src="https://placehold.co/120x50/1a1515/FFFFFF?text=tile&font=montserrat" alt="Tile"></div>
+                    <div class="logo-item"><img src="https://placehold.co/120x50/1a1515/FFFFFF?text=ieso&font=raleway" alt="ieso"></div>
+                    <div class="logo-item"><img src="https://placehold.co/120x50/1a1515/FFFFFF?text=MERCK&font=inter" alt="Merck"></div>
+
+                    <div class="logo-item"><img src="https://placehold.co/120x50/1a1515/FFFFFF?text=HARRY%27S&font=playfair-display" alt="Harry's"></div>
+                    <div class="logo-item"><img src="https://placehold.co/120x50/1a1515/FFFFFF?text=BARKBOX&font=oswald" alt="BarkBox"></div>
+                    <div class="logo-item"><img src="https://placehold.co/120x50/1a1515/FFFFFF?text=KICKSTARTER&font=montserrat" alt="Kickstarter"></div>
+                    <div class="logo-item"><img src="https://placehold.co/120x50/1a1515/FFFFFF?text=Disney&font=cursive" alt="Disney"></div>
+                </div>
+            </div>
+        </section>
+        <!-- <div class="spacer"></div>
+
+        <section class="grid-layout highlight-section">
+            
+            <div class="content-left image-container">
+                <img src="https://placehold.co/600x500/1a1515/5eead4?text=Isometric+Maze+Graphic&font=roboto" alt="Isometric maze with blue arrow" class="feature-image">
+            </div>
+
+            <div class="content-right">
+                <span class="eyebrow mono-text text-gray">Service Highlight</span>
+                <h2 class="section-title">Streamline your workflows with Artificial Intelligence (AI)</h2>
+                <p class="description-text">
+                    Reimagine your company's future by developing your own custom Generative AI applications. thoughtbot can help you find opportunities to leverage OpenAI's ChatGPT to streamline internal workflows and stay ahead of the competition.
+                </p>
+
+                <a href="#" class="cta-link">Drive innovation with AI <span class="arrow">&rarr;</span></a>
+            </div> -->
+
+        </section>
+        
+        <div class="spacer"></div>
+
+        <section class="ai-service-section">
+        <div class="ai-content-wrapper">
+            <div class="ai-illustration">
+                <div class="isometric-container">
+                    <!-- This will be the 3D path illustration -->
+                    <div class="path-3d">
+                        <div class="path-segment segment-1"></div>
+                        <div class="path-segment segment-2"></div>
+                        <div class="path-segment segment-3"></div>
+                        <div class="path-segment segment-4"></div>
+                        <div class="connecting-path"></div>
+                        <div class="arrow-path">
+                            <div class="arrow-head"></div>
+                        </div>
+                    </div>
+                    <!-- Wireframe boxes -->
+                    <div class="wireframe-box box-1"></div>
+                    <div class="wireframe-box box-2"></div>
+                    <div class="wireframe-box box-3"></div>
+                </div>
+            </div>
+            
+            <div class="ai-text-content">
+                <p class="service-label">Service Highlight</p>
+                <h2 class="ai-heading">Streamline your workflows with<br>Artificial Intelligence (AI)</h2>
+                <p class="ai-description">Reimagine your company's future by developing your own custom Generative AI applications. thoughtbot can help you find opportunities to leverage OpenAI's ChatGPT to streamline internal workflows and stay ahead of the competition.</p>
+                <a href="#" class="ai-link">Drive innovation with AI <span class="arrow">→</span></a>
+            </div>
+        </div>
+    </section>
+    <section class="client-success-section">
+        <p class="section-label">Client Success</p>
+        <h2 class="success-heading">Positive outcomes for hundreds of web and mobile projects like yours</h2>
+        
+        <div class="case-cards">
+            <div class="case-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop" alt="Harvard Business Review">
+                    <div class="card-overlay">
+                        <h3 class="card-title">Harvard<br>Business<br>Review</h3>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p class="card-text"><strong>HBR</strong> — Future-proofing Harvard Business Review to inspire the next generation of global business leaders.</p>
+                    <span class="card-arrow">→</span>
+                </div>
+            </div>
+            
+            <div class="case-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop" alt="Healthcare Company">
+                    <div class="card-overlay">
+                        <h3 class="card-title">Confidential<br>Healthcare Company</h3>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p class="card-text"><strong>Generative AI</strong> — Transforming healthcare experiences with artificial intelligence and machine learning</p>
+                    <span class="card-arrow">→</span>
+                </div>
+            </div>
+            
+            <div class="case-card">
+                <div class="card-image purple-bg">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=400&fit=crop" alt="CloseKnit">
+                    <div class="card-overlay">
+                        <div class="closeknit-logo">
+                            <span class="logo-icon">🧶</span>
+                            <span class="logo-text">CloseKnit.</span>
+                        </div>
+                        <div class="closeknit-illustration">
+                            <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=400&h=300&fit=crop" alt="Healthcare illustration">
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p class="card-text"><strong>CloseKnit</strong> — Creating a scalable, multi-platform solution for virtual urgent care</p>
+                    <span class="card-arrow">→</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="testimonial-section">
+        <div class="testimonial-content">
+            <blockquote class="testimonial-quote">
+                <p>"We were so impressed by how collaborative and organized thoughtbot's cross-functional team was. They were able to work through unexpected challenges with strategic focus. That remained consistent throughout our nine-month engagement."</p>
+            </blockquote>
+            
+            <div class="testimonial-footer">
+                <div class="author-info">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop" alt="Anne Bartholomew" class="author-photo">
+                    <div class="author-details">
+                        <p class="author-name">Anne Bartholomew</p>
+                        <p class="author-title">Director of Product Management, Harvard Business Review</p>
+                    </div>
+                </div>
+                
+                <a href="#" class="case-study-link">
+                    Read the Harvard Business Review case study <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="purpose-section">
+        <div class="purpose-content-wrapper">
+            <div class="purpose-illustration">
+                <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Compass circle -->
+                    <circle cx="200" cy="250" r="120" fill="none" stroke="#7c3aed" stroke-width="3" opacity="0.6"/>
+                    
+                    <!-- Tick marks around compass -->
+                    <g class="compass-ticks">
+                        <line x1="200" y1="130" x2="200" y2="145" stroke="#7c3aed" stroke-width="2"/>
+                        <line x1="280" y1="190" x2="270" y2="200" stroke="#7c3aed" stroke-width="2"/>
+                        <line x1="320" y1="250" x2="305" y2="250" stroke="#7c3aed" stroke-width="2"/>
+                        <line x1="280" y1="310" x2="270" y2="300" stroke="#7c3aed" stroke-width="2"/>
+                        <line x1="200" y1="370" x2="200" y2="355" stroke="#7c3aed" stroke-width="2"/>
+                        <line x1="120" y1="310" x2="130" y2="300" stroke="#7c3aed" stroke-width="2"/>
+                        <line x1="80" y1="250" x2="95" y2="250" stroke="#7c3aed" stroke-width="2"/>
+                        <line x1="120" y1="190" x2="130" y2="200" stroke="#7c3aed" stroke-width="2"/>
+                    </g>
+                    
+                    <!-- Compass needle -->
+                    <g class="compass-needle">
+                        <polygon points="200,250 190,270 200,180 210,270" fill="#a855f7"/>
+                        <polygon points="200,250 190,230 200,320 210,230" fill="#7c3aed"/>
+                        <circle cx="200" cy="250" r="8" fill="#c084fc"/>
+                    </g>
+                    
+                    <!-- Person avatars -->
+                    <g class="person person-1">
+                        <ellipse cx="170" cy="120" rx="25" ry="30" fill="#a855f7"/>
+                        <circle cx="170" cy="95" r="18" fill="#c084fc"/>
+                        <line x1="170" y1="150" x2="170" y2="240" stroke="#7c3aed" stroke-width="1" stroke-dasharray="3,3"/>
+                    </g>
+                    
+                    <g class="person person-2">
+                        <ellipse cx="350" cy="200" rx="25" ry="30" fill="#e9d5ff"/>
+                        <circle cx="350" cy="175" r="18" fill="#f3e8ff"/>
+                        <line x1="350" y1="230" x2="280" y2="250" stroke="#7c3aed" stroke-width="1" stroke-dasharray="3,3"/>
+                    </g>
+                    
+                    <g class="person person-3">
+                        <ellipse cx="280" cy="380" rx="25" ry="30" fill="#a855f7"/>
+                        <circle cx="280" cy="355" r="18" fill="#c084fc"/>
+                        <line x1="280" y1="370" x2="230" y2="320" stroke="#7c3aed" stroke-width="1" stroke-dasharray="3,3"/>
+                    </g>
+                    
+                    <g class="person person-4">
+                        <ellipse cx="70" cy="330" rx="25" ry="30" fill="#c084fc"/>
+                        <circle cx="70" cy="305" r="18" fill="#ddd6fe"/>
+                        <line x1="70" y1="330" x2="140" y2="290" stroke="#7c3aed" stroke-width="1" stroke-dasharray="3,3"/>
+                    </g>
+                </svg>
+            </div>
+            
+            <div class="purpose-text-content">
+                <p class="section-label">Our company</p>
+                <h2 class="purpose-heading">Purpose-driven teams</h2>
+                <p class="purpose-description">Our team is driven by our purpose and values; we continually improve our process, do our best work in strong partnerships with you, and transparently share how we work. We now have teammates located throughout the Americas, Europe, West Asia, and Africa enabling us to take on client projects around the world.</p>
+                <a href="#" class="purpose-link">Learn more about our company <span class="arrow">→</span></a>
+            </div>
+        </div>
+    </section>
+    <section class="resources-section">
+        <p class="section-label">Resources for Designers, Developers, and Leaders</p>
+        <h2 class="resources-heading">Reap the rewards of everything we've learned while building successful products</h2>
+        
+        <div class="resources-grid">
+            <div class="resource-card">
+                <h3 class="resource-title">Tech Leadership</h3>
+                <p class="resource-description">A quick-library to help your team level up processes and decision-making.</p>
+                <a href="#" class="resource-link">Dive into our resources <span class="arrow">→</span></a>
+            </div>
+            
+            <div class="resource-card">
+                <h3 class="resource-title">Design Sprint Guide</h3>
+                <p class="resource-description">Our guide to conducting and facilitating Product Design Sprints.</p>
+                <a href="#" class="resource-link">Start your sprint <span class="arrow">→</span></a>
+            </div>
+            
+            <div class="resource-card">
+                <h3 class="resource-title">Upcase</h3>
+                <p class="resource-description">Become an experienced developer and take "junior" out of your title.</p>
+                <a href="#" class="resource-link">Learn from the experts <span class="arrow">→</span></a>
+            </div>
+            
+            <div class="resource-card">
+                <h3 class="resource-title">Our Playbook</h3>
+                <p class="resource-description">Our documented approach to making successful web and mobile products.</p>
+                <a href="#" class="resource-link">Discover a better way of working <span class="arrow">→</span></a>
+            </div>
+            
+            <div class="resource-card">
+                <h3 class="resource-title">Our Blog</h3>
+                <p class="resource-description">The latest design, development, and product tools, techniques and more.</p>
+                <a href="#" class="resource-link">Stay current on best practices <span class="arrow">→</span></a>
+            </div>
+            
+            <div class="resource-card">
+                <h3 class="resource-title">Giant Robots Smashing Into Other Giant Robots Podcast</h3>
+                <p class="resource-description">A podcast about the design, development, and business of great software.</p>
+                <a href="#" class="resource-link">Listen and subscribe <span class="arrow">→</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+        <h2 class="cta-heading">What does success look like for your project?</h2>
+        <button class="cta-banner-button">Let's talk!</button>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <div class="logo-icon">🤖</div>
+                    <span>thoughtbot</span>
+                </div>
+                <div class="footer-legal">
+                    <p class="copyright">© 2025 thoughtbot, inc.</p>
+                    <p class="trademark">The design of a robot and thoughtbot are registered trademarks of thoughtbot, inc.</p>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <a href="#" class="footer-link">Services</a>
+                    <a href="#" class="footer-link">Case Studies</a>
+                    <a href="#" class="footer-link">Resources</a>
+                    <a href="#" class="footer-link highlighted">Let's Talk</a>
+                </div>
+                
+                <div class="footer-column">
+                    <a href="#" class="footer-link">Our Company</a>
+                    <a href="#" class="footer-link">Careers</a>
+                    <a href="#" class="footer-link">Purpose</a>
+                    <a href="#" class="footer-link">Blog</a>
+                    <a href="#" class="footer-link">Events</a>
+                    <a href="#" class="footer-link">Sponsor</a>
+                    <a href="#" class="footer-link">Store</a>
+                </div>
+                
+                <div class="footer-column">
+                    <a href="#" class="footer-link">Mastodon</a>
+                    <a href="#" class="footer-link">Bluesky</a>
+                    <a href="#" class="footer-link">GitHub</a>
+                    <a href="#" class="footer-link">YouTube</a>
+                    <a href="#" class="footer-link">Twitch</a>
+                    <a href="#" class="footer-link">Feeds</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-contact">
+                <a href="tel:+18779768687" class="contact-link">US: +1 (877) 9-ROBOTS</a>
+                <a href="tel:+442010203807" class="contact-link">UK: +44 (0)20 3807 0560</a>
+            </div>
+            <div class="footer-policies">
+                <a href="#" class="policy-link">Code of Conduct</a>
+                <a href="#" class="policy-link">Accessibility Statement</a>
+                <a href="#" class="policy-link">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
